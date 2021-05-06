@@ -1,28 +1,27 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.EntityFrameworkCore;
 using WeHelpOtherTogether.Web.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.AspNetCore.Identity.UI.Services;
+using WeHelpOtherTogether.Web.Services;
+using System;
 
 namespace WeHelpOtherTogether.Web
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; }
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+           
         }
 
-        public IConfiguration Configuration { get; }
+       
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -39,13 +38,26 @@ namespace WeHelpOtherTogether.Web
 
             services.AddAuthentication().AddGoogle(options =>
             {
-                IConfigurationSection googleAuthNSection =Configuration.GetSection("Authentication:Google");
+                IConfigurationSection googleAuthNSection = Configuration.GetSection("Authentication:Google");
                 options.ClientId = googleAuthNSection["ClientId"];
                 options.ClientSecret = googleAuthNSection["ClientSecret"];
             });
 
 
-            services.AddControllersWithViews();
+            //#SendGrid Email Setup
+            /*
+                services.AddTransient<IEmailSender, EmailSender>();
+                services.Configure<AuthMessageSenderOptions>(Configuration.GetSection("SendGridKey"));
+
+
+                services.Configure<DataProtectionTokenProviderOptions>(o =>
+                    o.TokenLifespan = TimeSpan.FromHours(3)
+                );
+            */
+
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();
+            //services.AddMvc().AddRazorOptions(options => options.AllowRecompilingViewsOnFileChange = true);
+            services.AddRazorPages();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +75,10 @@ namespace WeHelpOtherTogether.Web
                 app.UseHsts();
             }
             app.UseHttpsRedirection();
+
+            app.UseDefaultFiles();
             app.UseStaticFiles();
+            //app.UseFileServer();
 
             app.UseRouting();
 

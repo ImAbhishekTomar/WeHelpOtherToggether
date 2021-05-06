@@ -4,6 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using WeHelpOtherTogether.Web.Data.Entity;
 
 namespace WeHelpOtherTogether.Web.Data
 {

@@ -2,7 +2,253 @@
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<style>
+
+
+    /*.custom-checkbox {
+            width: 130px;
+            height: 130px;
+            border-radius: 4px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }*/
+
+    .btn-light:not(:disabled):not(.disabled).active, .btn-light:not(:disabled):not(.disabled):active, .show > .btn-light.dropdown-toggle {
+        color: #ffffff;
+        background-color: #000000;
+        border-color: #ffffff;
+    }
+</style>
+
+<div id="home-page" class="row bg-light text-dark" style="min-height:89vh">
+
+
+    <div class="col col-sm-12 col-lg-4 p-3"
+         style="
+    display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #e0e0e0
+">
+        <div class="card card-body">
+            <h3 class="text-danger mb-3">#SOS Support</h3>
+            <h5 class="mb-3">Whta typo of support you need?</h5>
+            <div class="row ml-1">
+                <div class="col-auto custom-control custom-checkbox checkbox-danger">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Need Oxigeno</label>
+                </div>
+                <div class="col-auto custom-control custom-checkbox checkbox-danger">
+                    <input type="checkbox" class="custom-control-input" id="customCheck2">
+                    <label class="custom-control-label" for="customCheck2">Need Drug</label>
+                </div>
+                <div class="col-auto custom-control custom-checkbox checkbox-danger">
+                    <input type="checkbox" class="custom-control-input" id="customCheck3">
+                    <label class="custom-control-label" for="customCheck3">Need Hospital</label>
+                </div>
+                <div class="col-auto custom-control custom-checkbox checkbox-danger">
+                    <input type="checkbox" class="custom-control-input" id="customCheck4">
+                    <label class="custom-control-label" for="customCheck4">Other</label>
+                </div>
+            </div>
+
+
+            <div class="mt-3">
+                <form class="#msform mb-3">
+
+                    <div class="row pl-0">
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xs-12 form-group">
+                            <input type="text" placeholder="What's Your Name?" class="form-control input-sm" aria-label="Small">
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xs-12 form-group">
+                            <input type="text" placeholder="Patient Name?" class="form-control input-sm" aria-label="Small">
+                        </div>
+                    </div>
+
+
+                    <div class="form-group">
+                        <input type="text" placeholder="Hospital Name (Optional)" class="form-control input-sm" aria-label="Small">
+                    </div>
+
+                    <div class="form-group">
+                        <input type="text"
+                               autocomplete="on"
+                               placeholder="Address where you want support?" class="form-control input-sm" aria-label="Small">
+                    </div>
+
+                    <div class="row pl-0">
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xs-12 form-group">
+                            <input type="text" placeholder="Area Code?" class="form-control input-sm" aria-label="Small">
+                        </div>
+
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xs-12 form-group">
+                            <input type="text" placeholder="District?" class="form-control input-sm" aria-label="Small">
+                        </div>
+
+
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xs-12 form-group">
+                            <select name="state" id="state" class="form-control input-sm">
+                                <option value="Andhra Pradesh">Andhra Pradesh</option>
+                                <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+                                <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                                <option value="Assam">Assam</option>
+                                <option value="Bihar">Bihar</option>
+                                <option value="Chandigarh">Chandigarh</option>
+                                <option value="Chhattisgarh">Chhattisgarh</option>
+                                <option value="Dadar and Nagar Haveli">Dadar and Nagar Haveli</option>
+                                <option value="Daman and Diu">Daman and Diu</option>
+                                <option value="Delhi">Delhi</option>
+                                <option value="Lakshadweep">Lakshadweep</option>
+                                <option value="Puducherry">Puducherry</option>
+                                <option value="Goa">Goa</option>
+                                <option value="Gujarat">Gujarat</option>
+                                <option value="Haryana">Haryana</option>
+                                <option value="Himachal Pradesh">Himachal Pradesh</option>
+                                <option value="Jammu and Kashmir">Jammu and Kashmir</option>
+                                <option value="Jharkhand">Jharkhand</option>
+                                <option value="Karnataka">Karnataka</option>
+                                <option value="Kerala">Kerala</option>
+                                <option value="Madhya Pradesh">Madhya Pradesh</option>
+                                <option value="Maharashtra">Maharashtra</option>
+                                <option value="Manipur">Manipur</option>
+                                <option value="Meghalaya">Meghalaya</option>
+                                <option value="Mizoram">Mizoram</option>
+                                <option value="Nagaland">Nagaland</option>
+                                <option value="Odisha">Odisha</option>
+                                <option value="Punjab">Punjab</option>
+                                <option value="Rajasthan">Rajasthan</option>
+                                <option value="Sikkim">Sikkim</option>
+                                <option value="Tamil Nadu">Tamil Nadu</option>
+                                <option value="Telangana">Telangana</option>
+                                <option value="Tripura">Tripura</option>
+                                <option value="Uttar Pradesh">Uttar Pradesh</option>
+                                <option value="Uttarakhand">Uttarakhand</option>
+                                <option value="West Bengal">West Bengal</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="row pl-0">
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xs-12 form-group">
+                            <input maxlength="10" type="text" placeholder="Mobile?"
+                                   class="form-control input-sm" aria-label="Small">
+                        </div>
+                        <div class="col-sm-12 col-md-6 col-lg-6 col-xs-12 form-group">
+                            <input maxlength="10" type="text" placeholder="Mobile Secondary?"
+                                   class="form-control input-sm" aria-label="Small">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Tell us what help you need?" rows="5" maxlength="125"
+                                  class="form-control input-sm"
+                                  cols="10"></textarea>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-success btn-lg btn-block">Submit</button>
+
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="col col-sm-12 col-lg-8 p-3">
+        <div>
+            <div class="card" style="width: 18rem;">
+                <div class="card" id="i-can-help"
+                     v-show="isShowing"
+                     style="display:none;
+                        position:absolute; top:0; left:0; height:100%;
+                        z-index:2;
+                        width:100%">
+                    <div class="card-body">
+                        <h4 class="card-subtitle mb-3">Need Oxigen</h4>
+                        <h6 class="card-subtitle mb-2">Gaur City, Noida</h6>
+                        <h6 class="card-subtitle mb-2">Akash Singh</h6>
+                        <h6 class="card-subtitle mb-2">Call 9873567263</h6>
+                        <button v-on:click="isShowing ^= true" type="button" class="btn btn-danger btn-sm">
+                            COMPLETED
+                        </button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">Need Plasma</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Gaur City, Noida</h6>
+                    <h6 class="card-subtitle mb-2">
+                        <span class="badge badge-warning">IN PROGRESS</span>
+                    </h6>
+                    <p class="font-weight-light text-sm">
+                        Need #Blood Type : Any group
+                        At: Max Hospital, Vaishali
+                        Blood Component : Need Plasma from any #Covid19 recovered patient.
+                        Number of Units : 2
+                        Primary Number : 9311305060
+                    </p>
+                    <div class="card-tools mt-2">
+                        <button v-on:click="isShowing ^= true" type="button" class="btn btn-danger btn-sm">
+                            I CAN HELP<span class="badge badge-light">982</span>
+                        </button>
+                    </div>
+                    <p class="card-text mt-2"><small class="text-muted">Last updated 3 mins ago</small></p>
+                    <p class="card-text mb-1"><small class="text-muted">Post 3 mins ago</small></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>
+
+@section scripts{
+
+    <link rel="stylesheet" href="~/vendor/jquery-step/jquery-step.css" />
+    <script src="~/vendor/jquery-step/jquery-step.js"></script>
+    <script src="~/vendor/papaparse.min.js"></script>
+
+    <script>
+
+        $(function () {
+            $().button('toggle');
+        });
+
+
+        var app = new Vue({
+            el: "#home-page",
+            data: {
+                isShowing: false,
+                listPincodeDb: [],
+                listCitys:[]
+            },
+            methods: {
+                getFormData: function () {
+                    let csvPath = "/open-db/pincode_db.csv";
+                    console.log(csvPath);
+
+                    this.$http.get("/open-db/pincode_db.csv").then(function(response) {
+                        this.depts = response.data;
+                            console.log(this.depts);  //the expected data does appear in the log
+                        },
+                     function(error) {
+                         console.log(error.statusText);
+                     });
+
+                    /*let data = Papa.parse(csvPath);
+                    Papa.parse(file, {
+                        complete: function (results) {
+                            console.log("Finished:", results.data);
+                        }
+                    });*/
+                }
+            },
+            created: function () {
+                this.getFormData();
+            }
+        })
+
+    </script>
+}
+
